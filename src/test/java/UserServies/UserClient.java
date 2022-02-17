@@ -34,4 +34,19 @@ public class UserClient {
                     .post("https://dummyapi.io/data/v1/user/create");
     }
 
+    public Response deleteUser(String userId) {
+        return given()
+                .header("app-id", "620d42883e7637c8c8c9a216")
+                .when()
+                .pathParam("user_id", userId)
+                .delete("https://dummyapi.io/data/v1/user/{user_id}");
+    }
+
+    public Response getUserById(String userId) {
+        return given()
+                    .header("app-id", "620d42883e7637c8c8c9a216")
+                .when()
+                    .pathParam("user_id", userId)
+                    .get("https://dummyapi.io/data/v1/user/{user_id}");
+    }
 }

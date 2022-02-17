@@ -1,5 +1,6 @@
 package UserServies;
 
+import PostClasses.DeletePostResponseBody;
 import UserClasses.*;
 import io.restassured.response.Response;
 
@@ -30,11 +31,23 @@ public class UserService {
         return createUserErrorResponseBody;
     }
 
-    public RecentCreatedUserResponseBody getCreatedUser() {
+    public int getUserById(String userId) {
+        Response response = new UserClient().getUserById(userId);
+        response.then().log().body();
+        return response.getStatusCode();
+    }
+
+        public RecentCreatedUserResponseBody getCreatedUser() {
         Response response = new UserClient().getRecentCreatedUsers();
         response.then().log().body();
         RecentCreatedUserResponseBody createdUserResponseBody = response.as(RecentCreatedUserResponseBody.class);
         createdUserResponseBody.setStatusCode(response.getStatusCode());
         return createdUserResponseBody;
+    }
+
+    public int deleteUserById(String userId) {
+        Response response = new UserClient().deleteUser(userId);
+        response.then().log().body();
+        return response.getStatusCode();
     }
 }
