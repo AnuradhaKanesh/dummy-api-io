@@ -26,4 +26,12 @@ public class PostClient {
                         .post("https://dummyapi.io/data/v1/post/create");
         }
 
+    public Response DeletePost(String postId) {
+        return given()
+                    .header("app-id", "620d42883e7637c8c8c9a216")
+                .when()
+                    .pathParam("post_id", postId)
+                    .delete("https://dummyapi.io/data/v1/post/{post_id}");
+    }
+
 }

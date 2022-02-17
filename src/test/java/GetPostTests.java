@@ -1,5 +1,4 @@
-package PostClasses;
-
+import PostClasses.Post;
 import PostServices.PostClient;
 import PostServices.PostService;
 import io.restassured.response.Response;
