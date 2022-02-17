@@ -4,6 +4,7 @@ import PostClasses.CreatePostRequestBody;
 import PostClasses.CreatePostResponseBody;
 import PostClasses.DeletePostResponseBody;
 import PostClasses.Post;
+import UserClasses.RecentCreatedUserResponseBody;
 import io.restassured.response.Response;
 
 public class PostService {
@@ -28,5 +29,7 @@ public class PostService {
         createPostResponseBody.setStatusCode(response.getStatusCode());
         return createPostResponseBody;
     }
+
+
 
 }

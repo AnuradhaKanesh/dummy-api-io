@@ -1,9 +1,6 @@
 package UserServies;
 
-import UserClasses.CreateUserErrorResponseBody;
-import UserClasses.CreateUserRequestBody;
-import UserClasses.CreateUserResponseBody;
-import UserClasses.User;
+import UserClasses.*;
 import io.restassured.response.Response;
 
 public class UserService {
@@ -31,5 +28,13 @@ public class UserService {
         createUserErrorResponseBody.setStatusCode(response.getStatusCode());
         response.then().log().body();
         return createUserErrorResponseBody;
+    }
+
+    public RecentCreatedUserResponseBody getCreatedUser() {
+        Response response = new UserClient().getRecentCreatedUsers();
+        response.then().log().body();
+        RecentCreatedUserResponseBody createdUserResponseBody = response.as(RecentCreatedUserResponseBody.class);
+        createdUserResponseBody.setStatusCode(response.getStatusCode());
+        return createdUserResponseBody;
     }
 }

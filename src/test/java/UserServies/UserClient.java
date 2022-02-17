@@ -10,10 +10,17 @@ public class UserClient {
 
     public Response getAllUsersList() {
         return given()
-                .header("app-id", "620d42883e7637c8c8c9a216")
+                    .header("app-id", "620d42883e7637c8c8c9a216")
                 .when()
-                .pathParam("limit", 10)
+                    .pathParam("limit", 10)
                 .get("https://dummyapi.io/data/v1/user?{limit}");
+
+    }
+    public Response getRecentCreatedUsers() {
+        return given()
+                    .header("app-id", "620d42883e7637c8c8c9a216")
+                .when()
+                    .get("https://dummyapi.io/data/v1/user?created=1");
 
     }
 
