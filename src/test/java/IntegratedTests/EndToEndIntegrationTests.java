@@ -26,8 +26,7 @@ public class EndToEndIntegrationTests {
     }
 
     @Test
-    public void deletUser() {
-
+    public void deleteUser() {
         //delete user
         int statusCode = new UserService().deleteUserById(id);
         Assert.assertEquals(statusCode, 200);

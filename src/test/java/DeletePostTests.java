@@ -1,21 +1,21 @@
+import PostClasses.CreatePostRequestBody;
+import PostClasses.CreatePostResponseBody;
 import PostClasses.DeletePostResponseBody;
-import PostServices.PostClient;
 import PostServices.PostService;
-import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DeletePostTests {
 
-
     @Test
-    public void shouldDeletePostByPostId() {
+    public void shouldCreateAndDeletePostByPostId() {
         //Arrange
-        String postId="620e4c04c7aeb926ebb94404";
-        Response response = new PostClient().DeletePost(postId);
+        CreatePostRequestBody requestBody = new CreatePostRequestBody.Builder().build();
+        CreatePostResponseBody createPostResponseBody = new PostService().createPost(requestBody);
+        String postId = createPostResponseBody.getId();
 
         //Act
-        DeletePostResponseBody deletePostResponseBody= new PostService().deletePostById(response);
+        DeletePostResponseBody deletePostResponseBody= new PostService().deletePostById(postId);
 
         //Assert
         Assert.assertEquals(deletePostResponseBody.getId(),postId);

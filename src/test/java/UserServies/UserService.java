@@ -11,7 +11,6 @@ public class UserService {
         response.then().log().body();
         User user = response.as(User.class);
         user.setStatusCode(response.getStatusCode());
-
         return user;
     }
 

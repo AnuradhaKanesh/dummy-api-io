@@ -10,10 +10,10 @@ public class GetPostTests {
     public void shouldGetPostByPostId() {
         //Arrange
         String postId="60d0fe4f5311236168a109ca";
-        Response response = new PostClient().getPostById(postId);
+
 
         //Act
-        Post post = new PostService().getPostById(response);
+        Post post = new PostService().getPostById(postId);
 
         //Assert
         post.assertPostResponse(postId);

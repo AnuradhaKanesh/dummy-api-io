@@ -40,7 +40,7 @@ public class UserClient {
                 .when()
                 .pathParam("user_id", userId)
                 .delete("https://dummyapi.io/data/v1/user/{user_id}");
-    }
+}
 
     public Response getUserById(String userId) {
         return given()
