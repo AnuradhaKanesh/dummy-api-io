@@ -1,5 +1,6 @@
 # Ignore Gradle project-specific cache directory
 .gradle
+.gradlew
 .github/
 # Ignore Gradle build output directory
 build/
@@ -13,5 +14,5 @@ bin/
 logs/
 *.log
 *.DS_Store
-settings.gradle
+/settings.gradle
 out/
