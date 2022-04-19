@@ -1,3 +1,5 @@
+import PostClasses.CreatePostRequestBody;
+import PostClasses.CreatePostResponseBody;
 import PostClasses.Post;
 import PostServices.PostClient;
 import PostServices.PostService;
@@ -7,10 +9,11 @@ import org.testng.annotations.Test;
 public class GetPostTests {
 
     @Test
-    public void shouldGetPostByPostId() {
+    public void shouldCreateAndGetPostByPostId() {
         //Arrange
-        String postId="60d0fe4f5311236168a109ca";
-
+        CreatePostRequestBody requestBody = new CreatePostRequestBody.Builder().build();
+        CreatePostResponseBody createPostResponseBody = new PostService().createPost(requestBody);
+        String postId = createPostResponseBody.getId();
 
         //Act
         Post post = new PostService().getPostById(postId);

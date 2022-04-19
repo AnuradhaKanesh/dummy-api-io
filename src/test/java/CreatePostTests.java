@@ -4,13 +4,8 @@ import PostServices.PostService;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreatePostTests {
-    private PostService postService;
+public class CreatePostTests extends BaseClass{
 
-    @BeforeMethod
-    public void before() {
-        postService = new PostService();
-    }
 
     @Test
     public void shouldCreatePost() {

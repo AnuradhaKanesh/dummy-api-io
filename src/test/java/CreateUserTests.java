@@ -6,14 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-public class CreateUserTests {
-
-    private UserService userService;
-
-    @BeforeMethod
-    public void before() {
-        userService = new UserService();
-    }
+public class CreateUserTests extends BaseClass {
 
     @Test
     public void shouldCreateUser() {

@@ -4,14 +4,8 @@ import UserServies.UserService;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CreateUserNegativeTests {
+public class CreateUserNegativeTests extends BaseClass{
 
-    private UserService userService;
-
-    @BeforeMethod
-    public void before() {
-        userService = new UserService();
-    }
 
     @Test
     public void shouldCreateUser() {
