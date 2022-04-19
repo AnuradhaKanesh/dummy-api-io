@@ -1,18 +1,13 @@
-import PostClasses.CreatePostRequestBody;
-import PostClasses.CreatePostResponseBody;
 import UserClasses.CreateUserRequestBody;
 import UserClasses.CreateUserResponseBody;
 import UserClasses.RecentCreatedUserResponseBody;
-import UserServies.UserService;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.stream.Stream;
-
-public class GetCreatedUserByAccountTests extends BaseClass {
+public class GetRecentCreatedUserInCurrentEnv extends BaseClass {
 
     @Test
-    public void shouldGetRecentCreatedUser() {
+    public void shouldGetRecentCreatedUserInCurrentEnv() {
         //Arrange
         CreateUserRequestBody request = new CreateUserRequestBody.Builder().firstname("test").lastname("krishnan").build();
         CreateUserResponseBody response = userService.createUser(request);
@@ -26,7 +21,6 @@ public class GetCreatedUserByAccountTests extends BaseClass {
 
         String recentUserId = createdUserResponseBody.getData().stream().reduce((first, second) -> second)
                 .orElse(null).getId();
-
         Assert.assertEquals(recentUserId, response.getId());
     }
 }
