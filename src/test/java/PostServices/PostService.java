@@ -11,9 +11,9 @@ public class PostService {
     public Post getPostById(String postId) {
         Response response = new PostClient().getPostById(postId);
         response.then().log().body();
-        Post Post = response.as(Post.class);
-        Post.setStatusCode(response.getStatusCode());
-        return Post;
+        Post post = response.as(Post.class);
+        post.setStatusCode(response.getStatusCode());
+        return post;
     }
 
     public DeletePostResponseBody deletePostById(String postId) {
