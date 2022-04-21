@@ -8,12 +8,12 @@ import static io.restassured.RestAssured.given;
 
 public class PostClient {
 
-        public Response getPostById(String postId) {
+        public Response getPostByOwnerId(String owner_id) {
             return given()
                         .header("app-id", "620d42883e7637c8c8c9a216")
                     .when()
-                        .pathParam("post_id", postId)
-                    .get("https://dummyapi.io/data/v1/user/{post_id}/post?limit=10");
+                        .pathParam("owner_id", owner_id)
+                    .get("https://dummyapi.io/data/v1/user/{owner_id}/post?limit=10");
         }
 
         public Response createPost(CreatePostRequestBody body) {

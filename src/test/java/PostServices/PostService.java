@@ -8,8 +8,8 @@ import io.restassured.response.Response;
 
 public class PostService {
 
-    public Post getPostById(String postId) {
-        Response response = new PostClient().getPostById(postId);
+    public Post getPostById(String ownerId) {
+        Response response = new PostClient().getPostByOwnerId(ownerId);
         response.then().log().body();
         Post post = response.as(Post.class);
         post.setStatusCode(response.getStatusCode());
